@@ -24,16 +24,16 @@ public class EstudianteService {
         return estudianteRepository.findAll();
     }
 
-    public Optional<Estudiante> obtenerPorId(Long id) {
+    public Optional<Estudiante> obtenerPorId(Integer id) {
         return estudianteRepository.findById(id);
     }
 
-    public Estudiante actualizar(Long id, Estudiante estudiante) {
+    public Estudiante actualizar(Integer id, Estudiante estudiante) {
         estudiante.setId(id);
         return estudianteRepository.save(estudiante);
     }
 
-    public void eliminar(Long id) {
+    public void eliminar(Integer id) {
         estudianteRepository.deleteById(id);
     }
 }

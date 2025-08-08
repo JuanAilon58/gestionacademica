@@ -24,16 +24,16 @@ public class CursoService {
         return cursoRepository.findAll();
     }
 
-    public Optional<Curso> obtenerPorId(Long id) {
+    public Optional<Curso> obtenerPorId(Integer id) {
         return cursoRepository.findById(id);
     }
 
-    public Curso actualizar(Long id, Curso curso) {
+    public Curso actualizar(Integer id, Curso curso) {
         curso.setId(id);
         return cursoRepository.save(curso);
     }
 
-    public void eliminar(Long id) {
+    public void eliminar(Integer id) {
         cursoRepository.deleteById(id);
     }
 }

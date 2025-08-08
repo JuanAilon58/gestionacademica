@@ -28,14 +28,14 @@ public class EstudianteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Estudiante> obtenerPorId(@PathVariable Long id) {
+    public ResponseEntity<Estudiante> obtenerPorId(@PathVariable Integer id) {
         return estudianteService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Estudiante> actualizar(@PathVariable Long id, @RequestBody Estudiante estudiante) {
+    public ResponseEntity<Estudiante> actualizar(@PathVariable Integer id, @RequestBody Estudiante estudiante) {
         if (!estudianteService.obtenerPorId(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
@@ -43,7 +43,7 @@ public class EstudianteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         if (!estudianteService.obtenerPorId(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
